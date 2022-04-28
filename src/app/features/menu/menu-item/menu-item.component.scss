@@ -1,0 +1,62 @@
+@import "../../../../theme/theme";
+
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.menu-item__image {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 8px;
+  border-radius: 3px;
+}
+
+.menu-item__info {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0;
+}
+
+.menu-item__data {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.menu-item__price {
+  font-size: 24px;
+  font-weight: 900;
+  direction: ltr;
+}
+.menu-item__calories {
+  font-size: 24px;
+  font-weight: 900;
+  direction: ltr;
+}
+
+.menu-item__details {
+  flex: 3;
+  margin-bottom: 15px;
+
+  font-size: 16px;
+}
+
+.menu-item__tagline {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.menu-item__actions {
+  display: flex;
+  justify-content: space-around;
+
+  width: 100%;
+  margin-bottom: 24px;
+}

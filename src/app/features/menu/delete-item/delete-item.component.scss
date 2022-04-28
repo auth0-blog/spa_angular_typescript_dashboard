@@ -1,0 +1,88 @@
+@import "../../../../theme/theme";
+
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+.delete-item__confirmation-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 32px;
+
+  font-size: 16px;
+
+  line-height: 32px;
+}
+
+.delete-item__question-text {
+  font-weight: 700;
+}
+
+.delete-item__warning-text {
+  color: $bright-red;
+  font-weight: 700;
+}
+
+.delete-item__item-box {
+  display: flex;
+  align-items: center;
+
+  margin-top: 24px;
+  padding: 24px;
+
+  border-radius: 3px;
+
+  width: 540px;
+
+  background: $almond;
+}
+
+.delete-item__item-image {
+  height: 200px;
+  width: 200px;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+}
+
+.delete-item__item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 24px;
+
+  height: 100%;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+.delete-item__item-name {
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  text-overflow: ellipsis;
+  line-height: 20px;
+  letter-spacing: 0.015em;
+}
+
+.delete-item__item-tagline {
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.delete-item__item-description {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.delete-item__options {
+  display: flex;
+  margin: 16px 0;
+}

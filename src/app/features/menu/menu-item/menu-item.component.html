@@ -1,0 +1,42 @@
+<app-view>
+	<ng-container *ngIf="menuItem$ | async as menuItem">
+		<app-content [title]="menuItem?.name || ''" actionName="Back" (action)="back()">
+			<div class="menu-item">
+				<img
+					class="menu-item__image"
+					[src]="menuItem.image"
+					[alt]="menuItem.name"
+				/>
+				<div class="menu-item__info">
+					<div class="menu-item__data">
+						<span class="menu-item__price"> {{menuItem.price}} </span>
+						<span class="menu-item__calories">
+							{{menuItem.calories}} calories
+						</span>
+					</div>
+					<div class="menu-item__details">
+						<span class="menu-item__tagline">{{menuItem.tagline}}</span>
+						<br />
+						<br />
+						<span>{{menuItem.description}}</span>
+					</div>
+				</div>
+			</div>
+
+			<ng-container *ngIf="isAdmin$ | async">
+				<div class="menu-item__actions">
+					<app-button
+						variant="outline"
+						label="Edit"
+						(buttonClick)="navigateTo('edit')"
+					></app-button>
+					<app-button
+						variant="outline"
+						label="Delete"
+						(buttonClick)="navigateTo('delete')"
+					></app-button>
+				</div>
+			</ng-container>
+		</app-content>
+	</ng-container>
+</app-view>

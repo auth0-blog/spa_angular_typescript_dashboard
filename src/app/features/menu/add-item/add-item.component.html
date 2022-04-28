@@ -1,0 +1,8 @@
+<app-view>
+	<app-content title="Add Menu Item" actionName="Cancel" (action)="cancel()">
+		<app-menu-item-form
+			[menuItem]="menuItem"
+			(formSubmitted)="submit($event)"
+		></app-menu-item-form>
+	</app-content>
+</app-view>

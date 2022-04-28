@@ -1,0 +1,10 @@
+<app-view>
+	<app-content title="Edit Menu Item" actionName="Cancel" (action)="cancel()">
+		<ng-container *ngIf="menuItem$ | async as menuItem">
+			<app-menu-item-form
+				[menuItem]="menuItem"
+				(formSubmitted)="submit($event)"
+			></app-menu-item-form>
+		</ng-container>
+	</app-content>
+</app-view>

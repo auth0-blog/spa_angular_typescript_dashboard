@@ -1,0 +1,10 @@
+<app-view>
+	<ng-container *ngIf="isAuthenticated$ | async; else unAuthenticated">
+		<app-content [title]="'Hello, ' + (user$ | async)?.name"> </app-content>
+	</ng-container>
+	<ng-template #unAuthenticated>
+		<app-content title="Howdy">
+			<h3>To start using the Dashboard, please sign in.</h3>
+		</app-content>
+	</ng-template>
+</app-view>

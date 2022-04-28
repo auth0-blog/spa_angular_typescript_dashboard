@@ -1,0 +1,21 @@
+<div class="grid-item">
+	<a
+		class="grid-item__link effect__filter-darken"
+		[routerLink]="'/menu/' + config.id"
+	>
+		<div class="grid-item__image-frame">
+			<div class="grid-item__image-frame-placeholder">
+				<fa-icon [icon]="faUtensils"></fa-icon>
+			</div>
+			<div
+				class="grid-item__image-frame-content"
+				[style.backgroundImage]="'url(' + config.image + ')'"
+			></div>
+		</div>
+		<div class="grid-item__info">
+			<span class="grid-item__name">{{config.name}}</span>
+			<span class="grid-item__tagline">{{config.tagline}}</span>
+			<span class="grid-item__category">{{config.category}}</span>
+		</div>
+	</a>
+</div>

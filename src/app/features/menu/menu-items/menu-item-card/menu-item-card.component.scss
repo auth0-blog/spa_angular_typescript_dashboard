@@ -1,0 +1,110 @@
+@import "../../../../../theme/theme";
+:host {
+  display: flex;
+}
+.grid-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  width: 25%;
+  min-width: 240px;
+  max-width: 300px;
+  padding: 0 8px 2.5em;
+
+  user-select: none;
+}
+
+.grid-item__image-frame {
+  position: relative;
+  width: 100%;
+  background: $white;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 4px 5px 0 rgba(0, 0, 0, 0.06), 0 1px 10px 0 rgba(0, 0, 0, 0.08);
+
+  cursor: pointer;
+}
+
+.grid-item__image-frame:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.grid-item__image-frame-placeholder {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 75px;
+}
+
+.grid-item__link {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.grid-item__image-frame-content {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center;
+}
+
+.grid-item__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.grid-item__name {
+  margin: 12px 0 4px;
+  text-overflow: ellipsis;
+  line-height: 20px;
+  letter-spacing: 0.015em;
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+.grid-item__tagline {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.grid-item__category {
+  margin-top: 8px;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  background: $almond;
+  border: 1px solid $brown;
+  color: $brown;
+  padding: 4px 12px;
+  border-radius: 16px;
+}
+
+.effect__filter-darken {
+  filter: brightness(1);
+}
+
+.effect__filter-darken:hover > .grid-item__image-frame,
+.effect__filter-darken:focus > .grid-item__image-frame {
+  transition-property: filter, -webkit-filter;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.3, 0, 0, 1);
+  filter: brightness(0.95);
+}

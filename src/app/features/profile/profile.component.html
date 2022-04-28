@@ -1,0 +1,15 @@
+<app-view>
+	<ng-container *ngIf="user$ | async as user">
+		<app-content [title]="user.name || ''">
+			<img
+				class="user-profile__avatar"
+				[src]="user.picture"
+				[alt]="user.firstName"
+			/>
+			<div class="user-profile__actions">
+				<app-button variant="outline" label="View Account"></app-button>
+				<app-button variant="text" label="Help"></app-button>
+			</div>
+		</app-content>
+	</ng-container>
+</app-view>

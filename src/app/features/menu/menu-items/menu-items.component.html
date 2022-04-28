@@ -1,0 +1,35 @@
+<app-view>
+	<ng-container *ngIf="isAdmin$ | async; else default">
+		<!-- admin -->
+		<app-content
+			title="Menu Items"
+			actionName="+ Add Item"
+			(action)="addMenuItem()"
+		>
+			<ng-container *ngTemplateOutlet="contents"></ng-container>
+		</app-content>
+	</ng-container>
+
+	<!-- default -->
+	<ng-template #default>
+		<app-content title="Menu Items">
+			<ng-container *ngTemplateOutlet="contents"></ng-container>
+		</app-content>
+	</ng-template>
+</app-view>
+
+<ng-template #contents>
+	<ng-container *ngIf="menuItems$ | async as menuItems">
+		<ng-container *ngIf="menuItems.length > 0; else noItems">
+			<app-grid>
+				<ng-container *ngFor="let menuItem of menuItems">
+					<app-menu-item-card [config]="menuItem">
+					</app-menu-item-card>
+				</ng-container>
+			</app-grid>
+		</ng-container>
+		<ng-template #noItems>
+			<h2>There are no items.</h2>
+		</ng-template>
+	</ng-container>
+</ng-template>
