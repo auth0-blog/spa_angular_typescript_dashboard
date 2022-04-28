@@ -1,0 +1,65 @@
+<nav id="nav-bar" role="navigation" aria-label="NavBar">
+	<div class="nav-bar__header">
+		<app-logo></app-logo>
+	</div>
+	<div class="nav-bar__menu">
+		<ng-container *ngFor="let option of navOptions">
+			<ng-container
+				*ngTemplateOutlet="navBarMenuLink; context: {$implicit: option}"
+			></ng-container>
+		</ng-container>
+	</div>
+
+	<div class="nav-bar__footer">
+		<ng-container *ngIf="(isAuthenticated$ | async); else unAuthenticated">
+			<app-button
+				variant="solid"
+				customClass="authentication-button"
+				label="Log Out"
+				(buttonClick)="logout()"
+			></app-button>
+			<ng-container *ngTemplateOutlet="navBarSessionInfo"></ng-container>
+		</ng-container>
+		<ng-template #unAuthenticated>
+			<app-button
+				variant="solid"
+				customClass="authentication-button"
+				label="Log In"
+				(buttonClick)="loginWithRedirect()"
+			></app-button>
+		</ng-template>
+	</div>
+</nav>
+
+<ng-template #navBarMenuLink let-config>
+	<div class="nav-bar__menu-Item">
+		<div class="nav-bar__menu-link-wrapper effect__link-fade">
+			<a
+				[routerLink]="config?.to"
+				routerLinkActive="nav-bar__menu-link--active"
+			>
+				<div class="nav-bar__menu-link">
+					<div class="nav-bar__menu-link-icon">
+						<fa-icon [icon]="config?.icon" size="lg"></fa-icon>
+					</div>
+					<span class="nav-bar__menu-link-label">{{ config.label }}</span>
+				</div>
+			</a>
+		</div>
+	</div>
+</ng-template>
+
+<ng-template #navBarSessionInfo>
+	<div class="nav-bar__user-info">
+		<a routerLink="/profile" routerLinkActive="nav-bar__user-info-link--active">
+			<div class="nav-bar__user-info-link">
+				<div class="nav-bar__user-info-avatar">
+					<fa-icon [icon]="faUser" size="lg"></fa-icon>
+				</div>
+				<span class="nav-bar__user-info-name">
+					{{ (user$ | async)?.name || 'Auth0 Eats Teammate' }}
+				</span>
+			</div>
+		</a>
+	</div>
+</ng-template>

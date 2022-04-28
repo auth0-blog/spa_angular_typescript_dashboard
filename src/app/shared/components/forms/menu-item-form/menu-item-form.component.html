@@ -1,0 +1,25 @@
+<form class="form" [formGroup]="menuFormGroup">
+	<ng-container *ngIf="menuFormGroup">
+		<ng-container *ngFor="let formField of menuFormFields">
+			<app-form-field
+				[parentFormGroup]="menuFormGroup"
+				[form]="formField"
+			></app-form-field>
+		</ng-container>
+	</ng-container>
+</form>
+<div class="form__actions">
+	<app-button
+		variant="outline"
+		[enabled]="!!menuFormGroup?.valid"
+		label="Save"
+		(buttonClick)="save()"
+	></app-button>
+	<app-button
+		variant="text"
+		[enabled]="true"
+		label="Clear"
+		(buttonClick)="clear()"
+	>
+	</app-button>
+</div>

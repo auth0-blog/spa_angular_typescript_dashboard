@@ -1,0 +1,11 @@
+<button
+	(click)="onButtonClick()"
+	class="button"
+	[disabled]="!enabled"
+	[ngClass]="'button'
+        + ' ' + (customClass && customClass) 
+        + ' ' + (variant + '-button')
+        + ' ' + (!enabled && variant + '-button--disabled')"
+>
+	{{ label }}
+</button>

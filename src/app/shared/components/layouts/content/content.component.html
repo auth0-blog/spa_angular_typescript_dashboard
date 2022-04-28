@@ -1,0 +1,16 @@
+<section class="content">
+	<div class="content__header">
+		<div class="content__header-title">{{title}}</div>
+		<ng-container *ngIf="actionName">
+			<div
+				class="content__header-action effect__link-fade-opacity"
+				(click)="emitAction()"
+			>
+				{{actionName}}
+			</div>
+		</ng-container>
+	</div>
+	<div class="content__body">
+		<ng-content></ng-content>
+	</div>
+</section>

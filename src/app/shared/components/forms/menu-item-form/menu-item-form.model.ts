@@ -1,0 +1,60 @@
+import { FormFieldModel } from '../form.model';
+
+export const MenuFormFields: FormFieldModel[] = [
+  {
+    label: 'Name',
+    name: 'name',
+    required: true,
+    pattern: /^[A-Za-z ]+$/,
+    errorMessage: 'must only include letters',
+    defaultValue: '',
+  },
+  {
+    label: 'Price',
+    name: 'price',
+    required: true,
+    pattern: /^([1-9]+[0-9]*|0)(\.[\d][\d])$/,
+    errorMessage: 'must be a dollar amount including cents',
+    defaultValue: '',
+  },
+  {
+    label: 'Tagline',
+    name: 'tagline',
+    required: true,
+    pattern: /^[A-Za-z0-9 '".,;!?\-()]+$/,
+    errorMessage: `must only include letters, numbers, or any of the following: ' " . , ; ! ?`,
+    defaultValue: '',
+  },
+  {
+    label: 'Description',
+    name: 'description',
+    required: true,
+    pattern: /^[A-Za-z0-9 '".,;!?\-()]+$/,
+    errorMessage: `must only include letters, numbers, or any of the following: ' " . , ; ! ?`,
+    defaultValue: '',
+  },
+  {
+    label: 'Image URL',
+    name: 'image',
+    required: true,
+    pattern: /^(https:\/\/).+(\.[a-z]{2,3}\/).+(\.(jpg|jpeg|png))$/,
+    errorMessage: 'must be a valid URL',
+    defaultValue: '',
+  },
+  {
+    label: 'Calories',
+    name: 'calories',
+    required: true,
+    pattern: /^[0-9]+$/,
+    errorMessage: 'must be an integer number',
+    defaultValue: '',
+  },
+  {
+    label: 'Category',
+    name: 'category',
+    required: true,
+    pattern: /^[a-zA-Z]+$/,
+    errorMessage: 'must only include letters',
+    defaultValue: '',
+  },
+];

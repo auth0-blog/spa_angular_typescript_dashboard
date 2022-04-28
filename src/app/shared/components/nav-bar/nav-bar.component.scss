@@ -1,0 +1,159 @@
+@import "../../../../theme/theme";
+
+#nav-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 100%;
+  min-width: 230px;
+  max-width: 320px;
+  width: 230px;
+
+  margin: 0;
+  padding: 0;
+
+  background: $rich-brown;
+
+  font-family: $core-font;
+  font-size: 14px;
+  font-weight: 600;
+
+  z-index: 9999;
+  user-select: none;
+  cursor: default;
+
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.nav-bar__header {
+  display: flex;
+  justify-content: flex-start;
+
+  width: calc(100% - 12px);
+  margin: 12px 0 12px 12px;
+
+  font-family: $logo-font;
+  font-size: 24px;
+  overflow: hidden;
+}
+
+.nav-bar__menu {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  user-select: none;
+}
+
+.nav-bar__menu-Item {
+  width: 100%;
+  line-height: 20px;
+  letter-spacing: 0.015em;
+}
+
+.nav-bar__menu-link-wrapper {
+  position: relative;
+  display: flex;
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav-bar__menu-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  height: 40px;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.nav-bar__menu-link--active {
+  color: $white;
+}
+
+.nav-bar__menu-link--active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  width: 4px;
+  background: $red;
+}
+
+.nav-bar__menu-link-icon {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  width: 24px;
+}
+
+.nav-bar__menu-link-label {
+  margin-left: 16px;
+}
+
+.effect__link-fade:not(.nav-bar__menu-link--active) {
+  transition-property: color;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  color: #b3b3b3;
+}
+
+.effect__link-fade:hover,
+.effect__link-fade:focus {
+  color: $white;
+}
+
+.nav-bar__list {
+  flex: 1;
+  color: $white;
+}
+
+.nav-bar__footer {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+
+  width: 100%;
+
+  color: $white;
+
+  margin-bottom: 24px;
+}
+
+.nav-bar__user-info {
+  display: flex;
+  margin: 0 24px;
+  padding-top: 10px;
+}
+
+.nav-bar__user-info-link {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.nav-bar__user-info-link--active {
+  color: $lime-green;
+}
+
+.nav-bar__user-info-avatar {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  width: 28px;
+}
+
+.nav-bar__user-info-name {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}

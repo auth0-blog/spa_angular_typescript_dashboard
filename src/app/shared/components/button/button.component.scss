@@ -1,0 +1,69 @@
+@import "../../../../theme/theme";
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: $core-font;
+  font-size: 18px;
+  text-align: center;
+  text-transform: uppercase;
+
+  height: 40px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 3px;
+  outline: none;
+
+  user-select: none;
+  cursor: pointer;
+
+  min-width: 120px;
+}
+
+.text-button {
+  background-color: transparent;
+  color: #a85813;
+
+  font-weight: bold;
+
+  text-decoration: underline;
+}
+
+.solid-button {
+  background-color: #6f1a07;
+  color: $white;
+  box-shadow: $ui-shadow;
+}
+
+.outline-button {
+  background-color: transparent;
+  color: #6f1a07;
+
+  border: solid 2px #6f1a07;
+  border-radius: 3px;
+
+  font-weight: bold;
+}
+
+.outline-button--disabled {
+  opacity: 0.5;
+  color: #60656f;
+
+  border: solid 2px #60656f;
+
+  cursor: not-allowed;
+}
+
+.authentication-button {
+  align-self: center;
+  margin: 0 24px;
+  font-size: 14px;
+
+  height: 36px;
+
+  width: calc(100% - 48px);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
