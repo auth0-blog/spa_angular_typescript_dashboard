@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
-import { BaseMenuItem, MenusStateService } from 'src/app/core';
+import { BaseMenuItem, Menus } from 'src/app/core';
+import { Store } from '@ngxs/store';
 
 const MenuItemPlaceholder: BaseMenuItem = {
-	name: 'French Fries',
-	price: 299,
-	tagline: 'Crispy goodness',
-	description:
-		'A plate of light and crispy French fries using Idaho potatoes and peanut oil',
-	image:
-		'https://as2.ftcdn.net/jpg/02/13/18/09/500_F_213180964_DfqvRIHj0D3t9duYUROXuQ011AgVJIaM.jpg',
-	calories: 410,
-	category: 'sides'
+	name: '',
+	price: 0,
+	tagline: '',
+	description: '',
+	image: '',
+	calories: 0,
+	category: ''
 };
 
 @Component({
@@ -28,14 +27,14 @@ const MenuItemPlaceholder: BaseMenuItem = {
 })
 export class AddItemComponent {
 	menuItem = MenuItemPlaceholder;
-	constructor(
-		private location: Location,
-		private menusStateService: MenusStateService
-	) {}
+	constructor(private location: Location, private store: Store) {}
 
 	submit(menu: BaseMenuItem): void {
-		this.menusStateService.addMenuItem(menu);
-		this.location.back();
+		this.store.dispatch(
+			new Menus.AddMenuItemFormSubmitted({
+				menuItem: menu
+			})
+		);
 	}
 
 	cancel(): void {

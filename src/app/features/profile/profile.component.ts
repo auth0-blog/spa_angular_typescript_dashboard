@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { Store } from '@ngxs/store';
+import { UserState } from 'src/app/core';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+	selector: 'app-profile',
+	templateUrl: './profile.component.html',
+	styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
-  user$ = this.authService.user$;
+	user$ = this.store.select(UserState.user);
 
-  constructor(private authService: AuthService) {}
+	constructor(private store: Store) {}
 }

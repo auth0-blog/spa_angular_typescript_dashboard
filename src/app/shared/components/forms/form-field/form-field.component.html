@@ -6,7 +6,11 @@
 				<span class="form-field__label--required"> *</span>
 			</ng-container>
 		</label>
-		<ng-container *ngIf="!!parentFormGroup.controls[form.name].errors">
+		<ng-container
+			*ngIf="
+			!!parentFormGroup.controls[form.name].errors && 
+			parentFormGroup.controls[form.name].dirty"
+		>
 			<span class="form-field__error">{{form.errorMessage}}</span>
 		</ng-container>
 	</div>
