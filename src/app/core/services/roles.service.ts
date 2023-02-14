@@ -12,7 +12,7 @@ export const USER_ROLES = {
 })
 export class RolesService {
 	roles$ = this.authService.user$.pipe(
-		map((user) => user?.[`${environment.auth.audience}/roles`])
+		map((user) => user?.[`${environment.auth.authorizationParams.audience}/roles`])
 	);
 	isAdmin$ = this.roles$.pipe(
 		map((roles) => roles?.includes(USER_ROLES.MENU_ADMIN))

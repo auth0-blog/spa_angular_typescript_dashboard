@@ -11,7 +11,7 @@
 <div class="form__actions">
 	<app-button
 		variant="outline"
-		[enabled]="!!menuFormGroup?.valid"
+		[enabled]="menuFormGroup.valid === true"
 		label="Save"
 		(buttonClick)="save()"
 	></app-button>

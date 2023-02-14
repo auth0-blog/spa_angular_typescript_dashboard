@@ -92,9 +92,11 @@ Create an `auth-config.ts` file under your Angular project directory and populat
 export const AuthConfig = {
 	domain: '',
 	clientId: '',
-	audience: 'https://menu.example.com', // we will be using this as part of the server setup
 	serverUrl: 'http://localhost:7070', // depending on the port you use in the next section
-	redirectUri: window.location.origin
+	 authorizationParams: {
+        redirect_uri: window.location.origin,
+        audience: 'https://menu.example.com', // we will be using this as part of the server setup
+	},
 };
 ```
 
