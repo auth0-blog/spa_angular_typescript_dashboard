@@ -35,12 +35,17 @@ export class MenuItemFormComponent {
 		);
 	}
 	@Output() formSubmitted = new EventEmitter<BaseMenuItem>();
+
 	menuFormGroup!: FormGroup;
 	menuFormFields: FormFieldModel[] | undefined;
 
 	save(): void {
 		if (this.menuFormGroup) {
-			this.formSubmitted.emit(this.menuFormGroup.getRawValue());
+			const menu = {
+				...this.menuFormGroup.getRawValue(),
+				price: this.menuFormGroup.getRawValue().price * 100
+			};
+			this.formSubmitted.emit(menu);
 		}
 	}
 

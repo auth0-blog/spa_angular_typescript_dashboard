@@ -1,22 +1,22 @@
 <ng-container *ngIf="viewStatus === viewStates.Valid">
-	<main id="view">
-		<ng-container *ngTemplateOutlet="content"></ng-container>
-	</main>
+    <main id="view">
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+    </main>
 </ng-container>
 <ng-container *ngIf="viewStatus === viewStates.NotFound">
-	<main id="view">
-		<app-content title="Page Not Found">
-			<h3>Unable to dish out content.</h3>
-			<img
-				class="view__not-found--image"
-				src="https://cdn.auth0.com/blog/whatabyte/broken-plate-sm.png"
-				alt="Broken plates, broken page"
-			/>
-			<ng-container *ngTemplateOutlet="content"></ng-container>
-		</app-content>
-	</main>
+    <main id="view">
+        <app-content title="Page Not Found">
+            <h3>Unable to dish out content.</h3>
+            <img
+              class="view__not-found--image"
+              src="https://cdn.auth0.com/blog/whatabyte/broken-plate-sm.png"
+              alt="Broken plates, broken page"
+            />
+            <ng-container *ngTemplateOutlet="content"></ng-container>
+        </app-content>
+    </main>
 </ng-container>
 
 <ng-template #content>
-	<ng-content></ng-content>
+    <ng-content></ng-content>
 </ng-template>

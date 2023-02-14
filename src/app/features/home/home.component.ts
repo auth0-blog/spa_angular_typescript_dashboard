@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { Component } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { selectIsLoggedIn, selectUserDetails } from "src/app/core/state/user";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
+  selector: "app-home",
+  templateUrl: "./home.component.html",
   styles: [
     `
       :host {
@@ -14,8 +15,8 @@ import { AuthService } from '@auth0/auth0-angular';
   ],
 })
 export class HomeComponent {
-  isAuthenticated$ = this.authService.isAuthenticated$;
-  user$ = this.authService.user$;
+  isAuthenticated$ = this.store.select(selectIsLoggedIn);
+  user$ = this.store.select(selectUserDetails);
 
-  constructor(private authService: AuthService) {}
+  constructor(private store: Store) {}
 }

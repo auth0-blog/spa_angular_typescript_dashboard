@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { DeleteItemComponent } from './delete-item.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { DeleteItemComponent } from "./delete-item.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: DeleteItemComponent,
   },
 ];

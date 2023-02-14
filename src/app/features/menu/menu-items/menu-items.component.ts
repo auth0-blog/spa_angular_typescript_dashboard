@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MenusStateService, RolesService } from 'src/app/core';
+import { Component } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Store } from "@ngrx/store";
+import { selectMenuItems } from "src/app/core/state/menus";
+import { selectIsAdmin } from "src/app/core/state/user";
 
 @Component({
-  selector: 'app-menu-items',
-  templateUrl: './menu-items.component.html',
+  selector: "app-menu-items",
+  templateUrl: "./menu-items.component.html",
   styles: [
     `
       :host {
@@ -15,19 +17,16 @@ import { MenusStateService, RolesService } from 'src/app/core';
   ],
 })
 export class MenuItemsComponent {
-  menuItems$ = this.menusStateService.selectMenuItems$();
-  isAdmin$ = this.rolesService.isAdmin$;
+  menuItems$ = this.store.select(selectMenuItems);
+  isAdmin$ = this.store.select(selectIsAdmin);
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private menusStateService: MenusStateService,
-    private rolesService: RolesService
-  ) {
-    this.menusStateService.fetchMenuItems();
-  }
+    private store: Store
+  ) {}
 
   addMenuItem(): void {
-    this.router.navigate(['add'], { relativeTo: this.activatedRoute });
+    this.router.navigate(["add"], { relativeTo: this.activatedRoute });
   }
 }

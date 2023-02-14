@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { EditItemComponent } from './edit-item.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { EditItemComponent } from "./edit-item.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: EditItemComponent,
   },
 ];

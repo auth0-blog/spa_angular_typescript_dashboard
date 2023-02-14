@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { ApplicationRef, Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { first } from 'rxjs/operators';
+import { appLoaded } from './core/state/menus';
 
 @Component({
 	selector: 'app-root',
@@ -7,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	title = 'spa-angular-typescript-dashboard';
+	constructor(private store: Store, private appRef: ApplicationRef) {
+		this.appRef.isStable.pipe(first((stable) => stable)).subscribe(() => {
+			this.store.dispatch(appLoaded());
+		});
+	}
 }

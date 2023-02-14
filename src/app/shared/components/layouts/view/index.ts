@@ -1,2 +1,2 @@
-export * from './view.component';
-export * from './view.module';
+export * from "./view.component";
+export * from "./view.module";

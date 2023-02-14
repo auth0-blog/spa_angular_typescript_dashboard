@@ -1,6 +1,10 @@
 <app-view>
 	<ng-container *ngIf="menuItem$ | async as menuItem">
-		<app-content [title]="menuItem?.name || ''" actionName="Back" (action)="back()">
+		<app-content
+			[title]="menuItem?.name || ''"
+			actionName="Back"
+			(action)="back()"
+		>
 			<div class="menu-item">
 				<img
 					class="menu-item__image"
@@ -9,7 +13,7 @@
 				/>
 				<div class="menu-item__info">
 					<div class="menu-item__data">
-						<span class="menu-item__price"> {{menuItem.price}} </span>
+						<span class="menu-item__price"> {{ menuItem.price / 100 }} </span>
 						<span class="menu-item__calories">
 							{{menuItem.calories}} calories
 						</span>

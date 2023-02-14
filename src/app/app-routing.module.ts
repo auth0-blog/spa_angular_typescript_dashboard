@@ -28,7 +28,7 @@ const routes: Routes = [
   {
     path: '**',
     loadChildren: () =>
-      import('./features/notFound/notFound.module').then(
+      import('./features/not-found/not-found.module').then(
         (m) => m.NotFoundModule
       ),
   },

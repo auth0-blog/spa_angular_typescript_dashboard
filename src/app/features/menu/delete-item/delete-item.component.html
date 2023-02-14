@@ -1,45 +1,44 @@
 <app-view>
-	<app-content title="Delete Menu Item" actionName="Back" (action)="back()">
-		<ng-container *ngIf="menuItem$ | async as menuItem">
-			<div class="delete-item__confirmation-box">
-				<span class="delete-item__question-text">
-					Are you sure you want to delete this item?
-				</span>
-				<span class="delete-item__warning-text">
-					This action can't be undone.
-				</span>
-				<div class="delete-item__item-box">
-					<div
-						class="delete-item__item-image"
-						[style.backgroundImage]="'url(' + menuItem?.image + ')'"
-					></div>
-					<div class="delete-item__item-info">
-						<span class="delete-item__item-name">{{menuItem.name}}</span>
-						<span class="delete-item__item-tagline">
-							{{menuItem.tagline}}
-						</span>
-						<span class="delete-item__item-description">
-							{{menuItem.description}}
-						</span>
-						<span>${{menuItem.price / 100}}</span>
-						<span>{{menuItem.calories}} calories</span>
-					</div>
-				</div>
-				<div class="delete-item__options">
-					<div class="form__actions">
-						<app-button
-							variant="outline"
-							(buttonClick)="deleteMenuItem(menuItem.id)"
-							label="Delete"
-						></app-button>
-						<app-button
-							variant="text"
-							(buttonClick)="cancel()"
-							label="Cancel"
-						></app-button>
-					</div>
-				</div>
-			</div>
-		</ng-container>
-	</app-content>
-</app-view>
+    <app-content title="Delete Menu Item" actionName="Back" (action)="back()">
+        <ng-container *ngIf="menuItem$ | async as menuItem">
+            <div class="delete-item__confirmation-box">
+                <span class="delete-item__question-text">
+                  Are you sure you want to delete this item?
+                </span>
+                <span class="delete-item__warning-text">
+                  This action can't be undone.
+                </span>
+                <div class="delete-item__item-box">
+                  <div
+                    class="delete-item__item-image"
+                    [style.backgroundImage]="'url(' + menuItem?.image + ')'"
+                  ></div>
+                  <div class="delete-item__item-info">
+                    <span class="delete-item__item-name">{{menuItem.name}}</span>
+                    <span class="delete-item__item-tagline">
+                      {{menuItem.tagline}}
+                    </span>
+                    <span class="delete-item__item-description">
+                      {{menuItem.description}}
+                    </span>
+                    <span>${{menuItem.price / 100}}</span>
+                    <span>{{menuItem.calories}} calories</span>
+                  </div>
+                </div>
+                <div class="delete-item__options">
+                  <div class="form__actions">
+                    <app-button
+                      variant="outline"
+                      (buttonClick)="deleteMenuItem(menuItem.id)"
+                      label="Delete"
+                    ></app-button>
+                    <app-button
+                        variant="text"
+                        (buttonClick)="cancel()"
+                        label="Cancel"></app-button>
+                  </div>
+                </div>
+              </div>
+        </ng-container>
+    </app-content>
+  </app-view>

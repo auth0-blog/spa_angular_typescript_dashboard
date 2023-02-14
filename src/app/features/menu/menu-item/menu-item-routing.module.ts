@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { MenuItemComponent } from './menu-item.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { MenuItemComponent } from "./menu-item.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: MenuItemComponent,
   },
 ];

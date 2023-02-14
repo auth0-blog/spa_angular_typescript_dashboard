@@ -3,7 +3,7 @@ import { ViewStates } from 'src/app/shared';
 
 @Component({
 	selector: 'app-not-found',
-	templateUrl: './notFound.component.html',
+	templateUrl: './not-found.component.html',
 	styles: [
 		`
 			:host {
