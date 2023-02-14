@@ -1,12 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AkitaNgEffectsModule } from "@datorama/akita-ng-effects";
+import { AkitaNgDevtools } from "@datorama/akita-ngdevtools";
+import { AuthHttpInterceptor, AuthModule } from "@auth0/auth0-angular";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NavBarModule } from './shared';
-import { environment } from 'src/environments/environment';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { NavBarModule } from "./shared";
+import { environment } from "src/environments/environment";
+import { MenusEffects } from "./core/state/menus";
+
+// ✨ New 👇
+import { UserEffects } from "./core/state/user";
 
 @NgModule({
   imports: [
@@ -23,6 +29,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     }),
     AppRoutingModule,
     NavBarModule,
+
+    // ✨ Update this 👇
+    AkitaNgEffectsModule.forRoot([MenusEffects, UserEffects]),
+    environment.production
+      ? []
+      : AkitaNgDevtools.forRoot({
+          maxAge: 25,
+        }),
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

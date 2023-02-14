@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MenusStateService, RolesService } from 'src/app/core';
+import { Component } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { MenusQuery } from "src/app/core/state/menus";
+
+// ✨ New 👇
+import { UserQuery } from "src/app/core/state/user";
 
 @Component({
-  selector: 'app-menu-items',
-  templateUrl: './menu-items.component.html',
+  selector: "app-menu-items",
+  templateUrl: "./menu-items.component.html",
   styles: [
     `
       :host {
@@ -15,19 +18,20 @@ import { MenusStateService, RolesService } from 'src/app/core';
   ],
 })
 export class MenuItemsComponent {
-  menuItems$ = this.menusStateService.selectMenuItems$();
-  isAdmin$ = this.rolesService.isAdmin$;
+  menuItems$ = this.menuQuery.selectMenuItems$;
+
+  // ✨ New 👇
+  isAdmin$ = this.userQuery.selectIsAdmin$;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private menusStateService: MenusStateService,
-    private rolesService: RolesService
-  ) {
-    this.menusStateService.fetchMenuItems();
-  }
+    // ✨ New 👇
+    private userQuery: UserQuery,
+    private menuQuery: MenusQuery
+  ) {}
 
   addMenuItem(): void {
-    this.router.navigate(['add'], { relativeTo: this.activatedRoute });
+    this.router.navigate(["add"], { relativeTo: this.activatedRoute });
   }
 }

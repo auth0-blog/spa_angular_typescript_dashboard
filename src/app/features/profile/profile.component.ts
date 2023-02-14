@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { Component } from "@angular/core";
+
+// ✨ New 👇
+import { UserQuery } from "src/app/core/state/user";
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss'],
+  selector: "app-profile",
+  templateUrl: "./profile.component.html",
+  styleUrls: ["./profile.component.scss"],
 })
 export class ProfileComponent {
-  user$ = this.authService.user$;
+  // ✨ New 👇
+  user$ = this.userQuery.selectUser$;
 
-  constructor(private authService: AuthService) {}
+  // ✨ New 👇
+  constructor(private userQuery: UserQuery) {}
 }
