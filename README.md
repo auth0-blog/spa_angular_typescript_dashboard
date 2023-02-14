@@ -11,17 +11,17 @@ This sample uses the [Auth0 Angular SDK](https://github.com/auth0/auth0-angular)
 
 This project has a few branches for different purposes:
 
-- [`starter`](https://github.com/auth0-developer-hub/spa_angular_typescript_dashboard/tree/starter) - this contains the bare minimum that you can use as a starting point if you are following along with the tutorial
-- [`state/ngrx`](https://github.com/auth0-developer-hub/spa_angular_typescript_dashboard/tree/state/ngrx) - this contains the final state of the application when using Auth0 with NgRx
-- [`state/akita`](https://github.com/auth0-developer-hub/spa_angular_typescript_dashboard/tree/state/akita) - this contains the final state of the application when using Auth0 with Akita
-- [`state/ngxs`](https://github.com/auth0-developer-hub/spa_angular_typescript_dashboard/tree/state/ngxs) - this contains the final state of the application when using Auth0 with Ngxs
+- [`starter`](https://github.com/auth0-blog/spa_angular_typescript_dashboard/tree/starter) - this contains the bare minimum that you can use as a starting point if you are following along with the tutorial
+- [`state/ngrx`](https://github.com/auth0-blog/spa_angular_typescript_dashboard/tree/state/ngrx) - this contains the final state of the application when using Auth0 with NgRx
+- [`state/akita`](https://github.com/auth0-blog/spa_angular_typescript_dashboard/tree/state/akita) - this contains the final state of the application when using Auth0 with Akita
+- [`state/ngxs`](https://github.com/auth0-blog/spa_angular_typescript_dashboard/tree/state/ngxs) - this contains the final state of the application when using Auth0 with Ngxs
 
 ## Get Started
 
 Clone the repository:
 
 ```bash
-git clone -b starter git@github.com:auth0-developer-hub/spa_angular_typescript_dashboard.git
+git clone -b starter git@github.com:auth0-blog/spa_angular_typescript_dashboard.git
 ```
 
 Make the project directory your current directory:
